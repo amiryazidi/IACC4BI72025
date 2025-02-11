@@ -1,0 +1,56 @@
+<!--
+<h1> {{title}}</h1>
+<input type="text" value="color" [(ngModel)]="color">
+<p [style.BackgroundColor]="color"> propertyBinding
+    <p>
+
+        <table class="table" border="2">
+            <tr>
+                <td>title</td>
+                <td>price</td>
+                <td>quantity</td>
+                <td>like</td>
+                <td>image</td>
+            </tr>
+
+            <tr *ngFor="let p of products">
+                <td>{{p.title}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.Quantity}}</td>
+                <td>{{p.Like}}</td>
+                <td> <img src="{{p.image}}" alt="test"> </td>
+            </tr>
+        </table>
+
+
+        <button class="btn btn-info" (click)="show()"> save </button>
+
+-->
+
+<input type="text" [(ngModel)]="priceMax">
+<div class="row">
+    <div class="col-md-4 mb-4 d-flex align-items-stretch" *ngFor="let p of products">
+        <div *ngIf="p.price>priceMax || priceMax==null" class="card shadow-sm p-2" style="width: 18rem;">
+            <img class="card-img-top rounded" [src]="p.image" alt="{{p.title}}">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{ p.title }}</h5>
+                <p class="card-text fw-bold">Price: <span class="text-success">{{ p.price | currency }}</span></p>
+                <p class="card-text">
+                    Quantity:
+                    <span class="badge" [ngClass]="{'bg-danger': p.Quantity == 0, 'bg-warning': p.Quantity < 5, 'bg-success': p.Quantity >= 5}">
+                      {{ p.Quantity }}
+                  </span>
+                </p>
+                <p class="card-text">
+                    <span class="text-muted">Like: {{ p.Like }}</span>
+                </p>
+                <button [disabled]="p.Quantity == 0" (click)="buy(p)" class="btn btn-secondary">
+                  Buy
+              </button>
+                <button class="btn btn-primary" [routerLink]="['/detail',p.id]">
+                detail
+            </button>
+            </div>
+        </div>
+    </div>
+</div>

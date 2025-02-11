@@ -1,0 +1,10 @@
+<ul class="residence-list" *ngFor="let r of listResidences">
+    <li class="residence-item">
+        <img class="residence-image" src="{{r.image}}" alt="residence">
+        <div class="residence-info">
+            <h2 class="residence-name">{{r.name}}</h2>
+            <p class="residence-status">{{r.status}}</p>
+            <button class="btn-primary">Like</button>
+        </div>
+    </li>
+</ul>
