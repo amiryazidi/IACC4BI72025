@@ -1,0 +1,31 @@
+<label>Login</label>
+<input class="form-control" type="text" placeholder="login" [formControl]="login">
+<label>password</label>
+<input class="form-control" type="text" placeholder="password" [formControl]="pwd">
+<input type="submit" class="btn btn-primary" value="save" (click)="save()" [disabled]="login.invalid || pwd.invalid">
+
+<h1>formGroup</h1>
+<form [formGroup]="loginForm">
+    <label>name</label>
+    <input class="form-control" type="text" placeholder="name" formControlName="name">
+    <div *ngIf="this.loginForm.controls['name'].invalid  && this.loginForm.controls['name'].touched " class="alert alert-danger">
+        <p *ngIf="this.loginForm.controls['name'].hasError('required')">name obligatoire</p>
+        <p *ngIf="this.loginForm.controls['name'].hasError('minlength')">! minLength 4</p>
+    </div>
+    <label>email</label>
+    <input class="form-control" type="text" placeholder="email" formControlName="email">
+    <div *ngIf="this.loginForm.controls['email'].invalid" class="alert alert-danger">
+        email obligatoire doit etre un email valide
+    </div>
+    <label>adress</label>
+    <input class="form-control" type="text" placeholder="adress" formControlName="adress">
+    <div *ngIf="this.loginForm.controls['adress'].invalid" class="alert alert-danger">
+        adress obligatoire
+    </div>
+    <label>cin</label>
+    <input class="form-control" type="text" placeholder="cin" formControlName="cin">
+    <div *ngIf="this.loginForm.controls['cin'].invalid" class="alert alert-danger">
+        cin obligatoire et cin minLength 8
+    </div>
+    <input type="submit" class="btn btn-primary" value="save" (click)="save()" [disabled]="loginForm.invalid">
+</form>
