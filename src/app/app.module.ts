@@ -10,6 +10,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DetailProdComponent } from './detail-prod/detail-prod.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormResidenceComponent } from './form-residence/form-residence.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     NotfoundComponent,
     DetailProdComponent,
-    LoginComponent
+    LoginComponent,
+    FormResidenceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

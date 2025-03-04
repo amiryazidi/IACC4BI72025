@@ -1,0 +1,26 @@
+{
+  "recidences": [
+    {
+      "name": "a title",
+      "address": "test",
+      "image": "../../assets/images/R1.jpg",
+      "status": "disponible",
+      "id": "1"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

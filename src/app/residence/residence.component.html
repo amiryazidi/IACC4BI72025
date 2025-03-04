@@ -1,10 +1,20 @@
-<ul class="residence-list" *ngFor="let r of listResidences">
+
+
+<div class="header">
+  <h1>Liste des Résidences</h1>
+  <button class="btn-add-residence" [routerLink]="['/addResidence']">
+      + Ajouter Résidence
+  </button>
+
+</div><ul class="residence-list" *ngFor="let r of listResidences">
     <li class="residence-item">
         <img class="residence-image" src="{{r.image}}" alt="residence">
         <div class="residence-info">
             <h2 class="residence-name">{{r.name}}</h2>
             <p class="residence-status">{{r.status}}</p>
             <button class="btn-primary">Like</button>
+            <button class="btn-primary"  [routerLink]="['/addResidence',r.id]" >update</button>
+            <button class="btn btn-danger"  (click)="supp(r.id)">delete</button>
         </div>
     </li>
 </ul>
